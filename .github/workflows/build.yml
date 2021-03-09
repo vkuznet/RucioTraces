@@ -60,7 +60,6 @@ jobs:
       run: |
         curl -ksLO https://raw.githubusercontent.com/dmwm/CMSKubernetes/master/docker/rucio-tracer/Dockerfile
         sed -i -e "s,ENV TAG=.*,ENV TAG=${{steps.get-ref.outputs.tag}},g" Dockerfile
-        chmod +x run.sh
         docker build . --tag docker.pkg.github.com/dmwm/rucio-tracer/rucio-tracer
 
     - name: Login to Registry
