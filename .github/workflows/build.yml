@@ -24,7 +24,7 @@ jobs:
       run: |
         make
         mkdir rucio-tracer-tools
-		cp messanger/messanger server/server rucio-tracer-tools
+        cp messanger/messanger server/server rucio-tracer-tools
         tar cfz rucio-tracer-tools.tar.gz rucio-tracer-tools
 
     - name: Create Release
