@@ -2,8 +2,9 @@ FROM golang:latest as go-builder
 MAINTAINER Valentin Kuznetsov vkuznet@gmail.com
 
 ARG CGO_ENABLED=0
-RUN make
-RUN mkdir /data && cp server/server /data/rucio-tracer && cp etc /data
+ADD server server
+ADD etc etc
+RUN mkdir /data && cd server && make && cp server /data/rucio-tracer && cp -r ../etc /data
 
 FROM alpine
 COPY --from=go-builder /data /
