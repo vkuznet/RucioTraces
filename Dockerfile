@@ -7,4 +7,4 @@ ADD etc etc
 RUN mkdir /data && cd server && make && cp server /data/rucio-tracer && cp -r ../etc /data
 
 FROM alpine
-COPY --from=go-builder /data /
+COPY --from=go-builder /data /data
